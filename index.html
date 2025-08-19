@@ -133,7 +133,7 @@
         }
 
         /* Remove o fundo, a borda e a sombra das abas específicas */
-        #galeria, #matricula, #estudo, #avaliacoes, #produtos {
+        #galeria, #matricula, #estudo, #avaliacoes, #produtos, #redes, #como-chegar {
             padding: 0;
             background: none;
             border-radius: 0;
@@ -212,6 +212,62 @@
             margin: 2rem 0;
             height: 400px;
         }
+        
+        /* Estilos da seção redes sociais */
+        .social-media {
+            text-align: center;
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Novo estilo para os links de redes sociais e grupos */
+        #redes-sociais-content h2, #redes-sociais-content h3 {
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        
+        /* Ajuste para não ter lista */
+        #redes-sociais-content ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        
+        #redes-sociais-content li {
+            margin-bottom: 1rem;
+        }
+
+        /* Estilo base para links da seção de redes sociais */
+        #redes-sociais-content a {
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Cores específicas para cada link */
+        .instagram-link {
+            color: #E1306C; /* Rosa do Instagram */
+        }
+        .tiktok-link {
+            color: #FFFFFF; /* Branco */
+        }
+        .youtube-link {
+            color: #FF0000; /* Vermelho vivo do YouTube */
+        }
+        .whatsapp-group-link {
+            color: #25D366; /* Verde do WhatsApp */
+        }
+
+        #redes-sociais-content a:hover {
+            color: #ff6347; /* Cor de hover para os links */
+            text-shadow: 1px 1px 5px rgba(255, 99, 71, 0.7);
+        }
 
         /* Estilos do Slider da Galeria */
         .slider-container {
@@ -280,25 +336,6 @@
 
         .prev-btn:hover, .next-btn:hover {
             background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .social-media {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .social-media a {
-            display: inline-block;
-            margin: 0 15px;
-            font-size: 1.2rem;
-            color: var(--cor-texto);
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .social-media a:hover {
-            color: var(--cor-destaque-3);
-            transform: scale(1.1);
         }
 
         .blog-post {
@@ -538,8 +575,16 @@
             border-left:4px solid var(--vermelho);padding:10px 12px;background:#121212;border-radius:8px;color:#eee
         }
 
+        /* Estilo para mobile */
         @media(max-width:920px){
-            .sidebar{position:static;width:auto;border-right:none;border-bottom:3px solid var(--vermelho)}
+            .sidebar{
+                position:static;
+                width:auto;
+                border-right:none;
+                border-bottom:3px solid var(--vermelho);
+                max-height: 50vh; /* Limita a altura do menu */
+                overflow-y: auto; /* Adiciona scroll interno */
+            }
             main{margin:0}
         }
         
@@ -579,7 +624,7 @@
             <div id="home-page">
                 <h2 class="titulo-impacto">CT Souza Jiu Jitsu Brasileiro</h2>
                 <iframe width="315" height="560" src="https://www.youtube.com/embed/_iGMG7hG5eU" title="YouTube Short video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <div class="taggbox" style="width:100%;height:100%;overflow:auto;" data-widget-id="296751" data-website="1"></div>
+                <div class="taggbox" style="width:100%;height:100%;overflow:auto;" data-widget-id="296965" data-website="1"></div>
                 <script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script>
             </div>
         </div>
@@ -749,7 +794,7 @@
             <h3 style="padding: 0 1rem;">Treinos</h3>
             <div class="slideshow">
                 <div class="slide active"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755433885/120673385_1615405948666534_8475698595516265887_n._uaezgf.jpg" alt="Foto de treino 1"></div>
-                <div class="slide"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755433878/419329308_702984368481909_9031988343870171369_n..webp_ao7dki.jpg" alt="Foto de treino 2"></div>
+                <div class="slide"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755433878/419329368481909_9031988343870171369_n..webp_ao7dki.jpg" alt="Foto de treino 2"></div>
                 <div class="slide"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755433877/280265291_5098034803606669_63873700915275851_n..webp_ofjmbd.jpg" alt="Foto de treino 3"></div>
                 <div class="slide"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755433877/286791715_744327833670004_2909812155234222469_n..webp_hf9fzm.jpg" alt="Foto de treino 4"></div>
                 <div class="slide"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755433871/272951841_531037604939531_7815518836413264250_n..webp_nd0wkg.jpg" alt="Foto de treino 5"></div>
@@ -905,7 +950,7 @@
                         A SZABJJ acredita que o <strong>Jiu-Jitsu vai muito além</strong> de lutas e medalhas. Porém, quando um aluno <strong>deseja competir</strong> — sem pressão — oferecemos o <strong>treinamento necessário</strong> para acelerar o aprendizado e o amadurecimento no tatame <em>e</em> na vida.
                     </p>
                     <p>
-                        A participação no <strong>Intermunicipal Profissional (19/08/2021)</strong> e no <strong>Grand Prix Profissional (17/10/2021)</strong> reforçou nossa filosofia: competição é um <strong>meio</strong> de evolução. Não se trata apenas de vitórias, e sim de <strong>superação diária</strong>, respeito e espírito esportivo. Orgulho dos nossos guerreiros!
+                        A participação no <strong>Intermunicipal Profissional (19/08/2021)</strong> e no <strong>Grand Prix Profissional (17/08/2021)</strong> reforçou nossa filosofia: competição é um <strong>meio</strong> de evolução. Não se trata apenas de vitórias, e sim de <strong>superação diária</strong>, respeito e espírito esportivo. Orgulho dos nossos guerreiros!
                     </p>
                     <div>
                         <span class="tag">Preparação</span>
@@ -1234,7 +1279,7 @@
                         “Meu primeiro contato com o Jiu-Jitsu foi por causa de uma pipa…”
                     </p>
                     <p>
-                        Cresci em uma família com seis irmãos — cinco se tornaram lutadores. Um garoto pulou o muro de casa e tomou nossas pipas. Eu queria resolver na hora, mas meu irmão e meu primo me seguraram. Um mês depois, eles estavam matriculados no Jiu-Jitsu. Eu ainda não treinava, mas já vibrava do lado de fora.
+                        Cresci em uma família com seis irmãos — cinco se tornaram lutadores. Um garoto pulou o muro de casa e tomou nossas pipas. Iu queria resolver na hora, mas meu irmão e meu primo me seguraram. Um mês depois, eles estavam matriculados no Jiu-Jitsu. Eu ainda não treinava, mas já vibrava do lado de fora.
                     </p>
                     <p>
                         Depois, o segundo irmão entrou. Logo fui o terceiro. Por volta de 1978, o Jiu-Jitsu entrou de vez na minha vida. Eu tinha 11 anos e morava em Nilópolis, onde não havia academias.
@@ -1263,12 +1308,21 @@
         </div>
 
         <div id="redes" class="tab-content">
-            <h2>Redes Sociais</h2>
-            <p>Siga-nos para acompanhar a rotina de treinos, novidades e eventos!</p>
-            <div class="social-media">
-                <a href="https://www.instagram.com/sza.bjj" target="_blank">Instagram</a>
-                <a href="https://www.tiktok.com/@szadbjj" target="_blank">TikTok</a>
-                <a href="https://youtube.com/@ctszabjj4420" target="_blank">YouTube</a>
+            <div id="redes-sociais-content">
+                <h2>Redes Sociais e Grupos</h2>
+                <p>Siga-nos para acompanhar a rotina de treinos, novidades e eventos!</p>
+                <h3>Redes Sociais</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/sza.bjj" target="_blank" class="instagram-link">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@szadbjj" target="_blank" class="tiktok-link">TikTok</a></li>
+                    <li><a href="https://youtube.com/@ctszabjj4420" target="_blank" class="youtube-link">YouTube</a></li>
+                </ul>
+                <h3>Grupos de Alunos</h3>
+                <ul>
+                    <li><a href="https://chat.whatsapp.com/JWJMuTrD9I6IWdUTmrjkTt" target="_blank" class="whatsapp-group-link">Grupo de Alunos Adultos</a></li>
+                    <li><a href="https://chat.whatsapp.com/Eq15xFyUGdhJK1b1EDbleG" target="_blank" class="whatsapp-group-link">Grupo de Alunos Kids</a></li>
+                    <li><a href="https://chat.whatsapp.com/EB83iVN81ZJAgXO2ND3Uw5" target="_blank" class="whatsapp-group-link">Grupo de Alunos Mirim</a></li>
+                </ul>
             </div>
         </div>
         
@@ -1354,6 +1408,9 @@
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
 
+                    // Scroll to the top of the page
+                    window.scrollTo(0, 0);
+
                     // Fecha o menu após o clique
                     menuToggle.classList.remove('active');
                     sideMenu.style.width = "0";
@@ -1391,33 +1448,48 @@
 
         // Lógica do Slider da Galeria
         function nextSlide(button) {
-            const sliderContainer = button.closest('.slider-container');
-            const slider = sliderContainer.querySelector('.slider');
-            const slides = slider.querySelectorAll('.slider-item');
-            const slideWidth = slides[0].clientWidth;
-            
-            let currentTranslate = parseFloat(slider.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
-            let newTranslate = currentTranslate - slideWidth;
-
-            if (Math.abs(newTranslate) >= slideWidth * slides.length) {
-                newTranslate = 0;
+            const sliderContainer = button.closest('.slideshow');
+            const slides = sliderContainer.querySelectorAll('.slide');
+            let current = Array.from(slides).findIndex(s => s.classList.contains('active'));
+            let next = current + 1;
+            if (next >= slides.length) {
+                next = 0;
             }
-            slider.style.transform = `translateX(${newTranslate}px)`;
+            showSlide(sliderContainer, next);
         }
 
         function prevSlide(button) {
-            const sliderContainer = button.closest('.slider-container');
-            const slider = sliderContainer.querySelector('.slider');
-            const slides = slider.querySelectorAll('.slider-item');
-            const slideWidth = slides[0].clientWidth;
-
-            let currentTranslate = parseFloat(slider.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
-            let newTranslate = currentTranslate + slideWidth;
-            
-            if (newTranslate > 0) {
-                newTranslate = -slideWidth * (slides.length - 1);
+            const sliderContainer = button.closest('.slideshow');
+            const slides = sliderContainer.querySelectorAll('.slide');
+            let current = Array.from(slides).findIndex(s => s.classList.contains('active'));
+            let prev = current - 1;
+            if (prev < 0) {
+                prev = slides.length - 1;
             }
-            slider.style.transform = `translateX(${newTranslate}px)`;
+            showSlide(sliderContainer, prev);
+        }
+        
+        function showSlide(container, n) {
+            const slides = container.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                if (index === n) {
+                    slide.classList.add('active');
+                    const video = slide.querySelector('video');
+                    if (video) video.play();
+                } else {
+                    slide.classList.remove('active');
+                    const video = slide.querySelector('video');
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                }
+            });
+
+            const dots = container.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === n);
+            });
         }
         
         /* ========= Botão Topo ========= */
@@ -1458,7 +1530,7 @@
                     wrap.appendChild(dots);
 
                     prev.addEventListener('click', ()=>change(-1));
-next.addEventListener('click', ()=>change(1));
+                    next.addEventListener('click', ()=>change(1));
                 }
 
                 let current = 0;
