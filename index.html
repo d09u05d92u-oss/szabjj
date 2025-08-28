@@ -15,7 +15,7 @@
 
 <!-- Cor da barra do navegador no celular -->
 <meta name="theme-color" content="#000000">
-    <style>
+<style>
         /* Cores da logo: Preto, Cinza, Vermelho, Branco, Amarelo e Azul */
         :root {
             --cor-principal: #000000; /* Preto */
@@ -122,35 +122,22 @@
             padding: 2rem;
         }
 
-        .container {
-            width: 85%;
-            margin: auto;
-            padding: 2rem 0;
-        }
-
         /* Estilo base para todas as abas de conteúdo */
         .tab-content {
             display: none;
-            background: var(--cor-secundaria);
             padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
             animation: fadeIn 0.8s ease-in-out;
             overflow-x: hidden;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Remove o fundo, a borda e a sombra das abas específicas */
-        #galeria, #matricula, #estudo, #avaliacoes, #produtos, #redes, #como-chegar {
-            padding: 0;
+            /* REMOVE O FUNDO, BORDA E SOMBRA DE TODAS AS PÁGINAS */
             background: none;
             border-radius: 0;
             box-shadow: none;
         }
 
+        .tab-content.active {
+            display: block;
+        }
+        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -487,6 +474,9 @@
                 padding: 8px 15px; /* Redução do espaçamento */
                 font-size: 0.8rem; /* Redução do tamanho da fonte */
             }
+            .content, .tab-content {
+                padding: 1rem; /* Reduz o espaçamento geral para telas pequenas */
+            }
         }
         
         /* Estilos do blog */
@@ -517,10 +507,14 @@
         .toc a:hover{background:var(--vermelho);color:#fff;border-color:#000}
 
         /* Content */
-        main{margin-left:300px;padding:22px;max-width:980px}
+        main{
+            margin-left:300px;
+            padding: 2rem;
+            max-width:100%;
+        }
         section{
-            background:var(--cinza);border:1px solid #222;border-radius:12px;
-            padding:18px;margin:0 0 38px 0;box-shadow:0 0 18px rgba(0,0,0,.35)
+            padding: 24px;
+            margin:0 0 38px 0;
         }
         section h2{
             margin:6px 0 12px 0;color:#fff;border-left:6px solid var(--vermelho);
@@ -596,9 +590,14 @@
                 max-height: 50vh; /* Limita a altura do menu */
                 overflow-y: auto; /* Adiciona scroll interno */
             }
-            main{margin:0}
+            main{
+                margin:0;
+                padding: 10px; /* Reduz o espaçamento para mobile */
+            }
+            section{
+                padding: 10px; /* Reduz o espaçamento para mobile */
+            }
         }
-        
     </style>
 </head>
 <body>
@@ -1805,6 +1804,5 @@ Conto com você para ser parte dessa vitória!Qualquer valor é bem-vindo e far�
 </body>
 
 </html>
-
 
 
