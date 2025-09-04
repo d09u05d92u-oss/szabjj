@@ -1933,10 +1933,46 @@ Conto com você para ser parte dessa vitória!Qualquer valor é bem-vindo e far�
         }
         document.addEventListener('DOMContentLoaded', setupSlideshows);
     </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let path = window.location.pathname
+      .replace("/szabjj/", "")
+      .replace("/", "")
+      .toLowerCase();
+
+    if (path) {
+      let section = document.getElementById(path);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    document.querySelectorAll("a[href^='/szabjj/']").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        let target = this.getAttribute("href").replace("/szabjj/", "").replace("/", "");
+        let section = document.getElementById(target);
+        if (section) {
+          history.pushState({}, "", this.getAttribute("href"));
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    window.addEventListener("popstate", function () {
+      let path = window.location.pathname.replace("/szabjj/", "").replace("/", "");
+      let section = document.getElementById(path);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+</script>
 
 </body>
 
 </html>
+
 
 
 
