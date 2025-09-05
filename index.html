@@ -15,590 +15,7 @@
 
 <!-- Cor da barra do navegador no celular -->
 <meta name="theme-color" content="#000000">
-<style>
-        /* Cores da logo: Preto, Cinza, Vermelho, Branco, Amarelo e Azul */
-        :root {
-            --cor-principal: #000000; /* Preto */
-            --cor-secundaria: #333333; /* Cinza escuro */
-            --cor-destaque-1: #e74c3c; /* Vermelho */
-            --cor-destaque-2: #f39c12; /* Amarelo */
-            --cor-destaque-3: #3498db; /* Azul */
-            --cor-texto: #ffffff; /* Branco */
-            --cor-fundo: #1c1c1c; /* Cinza bem escuro para o fundo */
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            overflow-x: hidden; /* Evita rolagem horizontal */
-        }
-
-        header {
-            background-color: var(--cor-principal);
-            padding: 1rem 0;
-            text-align: center;
-            position: relative;
-        }
-
-        header img {
-            max-width: 250px; /* Tamanho da logo */
-            height: auto;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            margin: 0;
-            font-style: italic;
-            color: #ddd;
-        }
-
-        /* Hambúrguer Menu */
-        .menu-toggle {
-            position: fixed; /* Fixa o menu na tela */
-            top: 20px;
-            right: 20px;
-            z-index: 2000;
-            cursor: pointer;
-            background: none;
-            border: none;
-            pointer-events: auto; /* Garante que o clique sempre funcione */
-        }
-
-        .menu-toggle .hamburger-icon {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background-color: var(--cor-destaque-1);
-            margin: 4px 0; /* Espaçamento entre as linhas reduzido */
-            transition: all 0.3s ease-in-out;
-        }
-
-        .menu-toggle.active .hamburger-icon:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active .hamburger-icon:nth-child(1) {
-            transform: rotate(-45deg) translate(-6px, 6px);
-        }
-
-        .menu-toggle.active .hamburger-icon:nth-child(3) {
-            transform: rotate(45deg) translate(-6px, -6px);
-        }
-
-        /* Menu Lateral */
-        .side-menu {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            right: 0;
-            background-color: var(--cor-secundaria);
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .side-menu a {
-            padding: 10px 20px; /* Reduzindo o espaçamento */
-            text-decoration: none;
-            font-size: 0.9rem; /* Reduzindo o tamanho da fonte */
-            color: var(--cor-texto);
-            display: block;
-            transition: 0.3s;
-        }
-
-        .side-menu a:hover {
-            color: var(--cor-destaque-1);
-            background-color: var(--cor-principal);
-        }
-
-        /* Conteúdo Principal */
-        .content {
-            transition: margin-right .5s;
-            padding: 2rem;
-        }
-
-        /* Estilo base para todas as abas de conteúdo */
-        .tab-content {
-            display: none;
-            padding: 2.5rem;
-            animation: fadeIn 0.8s ease-in-out;
-            overflow-x: hidden;
-            /* REMOVE O FUNDO, BORDA E SOMBRA DE TODAS AS PÁGINAS */
-            background: none;
-            border-radius: 0;
-            box-shadow: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .section h2 {
-            text-align: center;
-            color: var(--cor-destaque-3);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Novo estilo para o título da página inicial */
-        .titulo-impacto {
-            font-family: 'Georgia', serif; /* Exemplo de fonte de impacto */
-            color: var(--cor-destaque-1); /* Cor vermelha */
-            font-size: 2.5rem; /* Aumentei um pouco o tamanho */
-            text-align: center; /* Centralizei o texto */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        /* Estilo para a mensagem de boas-vindas */
-        .titulo-impacto span {
-            display: block;
-        }
-
-        /* Tabela responsiva */
-        .table-container {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--cor-principal);
-        }
-
-        th {
-            background-color: var(--cor-destaque-1);
-            color: var(--cor-texto);
-        }
-
-        tr:hover {
-            background-color: #444;
-        }
-
-        /* Estilo para manter o texto na mesma linha */
-        .inline-text {
-            white-space: nowrap;
-        }
-
-        /* Estilo para o iframe do YouTube Shorts na home */
-        #home-page iframe {
-            max-width: 100%;
-            height: auto;
-            aspect-ratio: 9/16; /* Define a proporção vertical para Shorts */
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            margin-top: 1rem; /* Adicionei um pouco de margem acima do vídeo */
-        }
-        
-        /* Estilos do Taggbox na Home */
-        #home-page .taggbox {
-            margin: 2rem 0;
-            height: 400px;
-        }
-        
-        /* Estilos da seção redes sociais */
-        .social-media {
-            text-align: center;
-            margin-top: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        /* Novo estilo para os links de redes sociais e grupos */
-        #redes-sociais-content h2, #redes-sociais-content h3 {
-            padding: 1.5rem 1rem;
-            text-align: center;
-        }
-        
-        /* Ajuste para não ter lista */
-        #redes-sociais-content ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        
-        #redes-sociais-content li {
-            margin-bottom: 1rem;
-        }
-
-        /* Estilo base para links da seção de redes sociais */
-        #redes-sociais-content a {
-            font-family: 'Georgia', serif;
-            font-size: 1.2rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s, text-shadow 0.3s;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Cores específicas para cada link */
-        .instagram-link {
-            color: #E1306C; /* Rosa do Instagram */
-        }
-        .tiktok-link {
-            color: #FFFFFF; /* Branco */
-        }
-        .youtube-link {
-            color: #FF0000; /* Vermelho vivo do YouTube */
-        }
-        .whatsapp-group-link {
-            color: #25D366; /* Verde do WhatsApp */
-        }
-
-        #redes-sociais-content a:hover {
-            color: #ff6347; /* Cor de hover para os links */
-            text-shadow: 1px 1px 5px rgba(255, 99, 71, 0.7);
-        }
-
-        /* Estilos do Slider da Galeria */
-        .slider-container {
-            position: relative;
-            max-width: 600px;
-            height: 400px; /* Altura fixa para o slider */
-            margin: 2rem auto;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        
-        /* Ajuste para o slider de produtos que tem imagens verticais */
-        #produtos .slider-container {
-            max-width: 300px;
-            height: 400px;
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
-        }
-
-        .slider-item {
-            min-width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            height: 100%;
-        }
-
-        .slider-item img,
-        .slider-item iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Alterado para 'contain' para manter a proporção e caber dentro */
-            border-radius: 8px;
-        }
-
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-
-        .prev-btn, .next-btn {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .prev-btn:hover, .next-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .blog-post {
-            border-bottom: 1px solid #555;
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-post h3 {
-            color: var(--cor-destaque-1);
-        }
-
-        .blog-post a {
-            color: var(--cor-destaque-1);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .blog-post a:hover {
-            color: #ff6347;
-        }
-
-        footer {
-            background-color: var(--cor-principal);
-            color: #888;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-        }
-
-        /* Botão flutuante do WhatsApp */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background-color: #25D366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            text-decoration: none;
-            transition: transform 0.3s ease-in-out;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .whatsapp-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Estilo da página inicial */
-        #home-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 150px); /* Ajuste para centralizar o conteúdo */
-            text-align: center;
-        }
-
-        #home-page h2 {
-            margin-top: 0;
-        }
-
-        .cta-box {
-            background-color: #2c2c2c;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .cta-box h3 {
-            margin-top: 0;
-            color: var(--cor-destaque-1); /* Título da CTA em vermelho */
-        }
-
-        .cta-box a.whatsapp-link {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .cta-box a.whatsapp-link:hover {
-            background-color: #1aae55;
-        }
-        
-        /* Novo estilo para os botões */
-        .maps-button,
-        .uber-button {
-            display: inline-block;
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
-            margin-right: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .maps-button:hover,
-        .uber-button:hover {
-            background-color: #333;
-        }
-
-        /* Estilos específicos para o iframe de matrícula */
-        #matricula .iframe-container,
-        #estudo .iframe-container {
-            width: 100%;
-            height: 100vh; /* Para garantir que o iframe tenha altura suficiente */
-            max-width: 100%;
-            border-radius: 8-px;
-            overflow: hidden;
-        }
-
-        #matricula iframe,
-        #estudo iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Redução de espaçamento e tamanho de fonte para mobile */
-        @media (max-width: 768px) {
-            .side-menu a {
-                padding: 8px 15px; /* Redução do espaçamento */
-                font-size: 0.8rem; /* Redução do tamanho da fonte */
-            }
-            .content, .tab-content {
-                padding: 1rem; /* Reduz o espaçamento geral para telas pequenas */
-            }
-        }
-        
-        /* Estilos do blog */
-        :root{
-            --preto:#111;
-            --cinza:#1b1b1b;
-            --cinza-2:#2a2a2a;
-            --vermelho:#b60000;
-            --texto:#e9e9e9;
-            --texto-dim:#bfbfbf;
-        }
-        *{box-sizing:border-box}
-        html,body{margin:0;padding:0;background:var(--preto);color:var(--texto);font-family:Arial,Helvetica,sans-serif}
-
-        /* Sidebar */
-        .sidebar{
-            position:fixed;left:0;top:0;bottom:0;width:280px;background:#000;
-            border-right:3px solid var(--vermelho);padding:16px 12px;overflow-y:auto
-        }
-        .brand{color:#fff;text-align:center;margin:6px 0 14px 0}
-        .brand h1{font-size:18px;margin:0;color:#fff}
-        .brand small{color:var(--texto-dim)}
-        .toc h3{margin:10px 0 8px 8px;color:var(--vermelho);font-size:14px}
-        .toc a{
-            display:block;padding:8px 10px;margin:4px 4px;border-radius:6px;
-            color:#d9d9d9;text-decoration:none;border:1px solid #1f1f1f;background:#0b0b0b
-        }
-        .toc a:hover{background:var(--vermelho);color:#fff;border-color:#000}
-
-        /* Content */
-        main{
-            margin-left:300px;
-            padding: 2rem;
-            max-width:100%;
-        }
-        section{
-            padding: 24px;
-            margin:0 0 38px 0;
-        }
-        section h2{
-            margin:6px 0 12px 0;color:#fff;border-left:6px solid var(--vermelho);
-            padding-left:10px
-        }
-        section .meta{color:var(--texto-dim);font-size:13px;margin-top:-6px;margin-bottom:8px}
-
-        /* Slideshow (por seção) */
-        .slideshow{
-            position:relative;width:100%;border-radius:10px;overflow:hidden;
-            margin-bottom:14px;background:#000;
-        }
-        .slide{
-            position:relative;
-            display:none;
-            align-items:center;
-            justify-content:center;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-            height: 0;
-            overflow: hidden;
-        }
-        .slide.active{display:flex}
-        .slide img,
-        .slide video,
-        .slide iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Alterado para 'contain' para manter a proporção e não cortar */
-            border-radius: 8px;
-        }
-
-        .nav-btn{
-            position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);
-            color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;
-            font-size:20px;display:flex;align-items:center;justify-content:center;z-index:5
-        }
-        .nav-btn:hover{background:rgba(0,0,0,.8)}
-        .nav-prev{left:10px}
-        .nav-next{right:10px}
-        .dots{
-            position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center;z-index:4
-        }
-        .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
-        .dot.active{background:#fff}
-
-        /* Botão Topo */
-        #topBtn{
-            position:fixed;right:20px;bottom:20px;background:var(--vermelho);color:#fff;
-            border:none;border-radius:50%;width:54px;height:54px;font-size:20px;cursor:pointer;
-            box-shadow:0 6px 16px rgba(0,0,0,.5);display:none
-        }
-        #topBtn:hover{background:#8f0000}
-
-        /* Listas e destaques */
-        .lead{font-size:17px;line-height:1.55}
-        ul{margin:8px 0 8px 20px}
-        li{margin:6px 0}
-        .tag{display:inline-block;background:#0e0e0e;border:1px solid #2a2a2a;padding:4px 8px;border-radius:999px;font-size:12px;color:#bdbdbd;margin:2px 6px 2px 0}
-        .quote{
-            border-left:4px solid var(--vermelho);padding:10px 12px;background:#121212;border-radius:8px;color:#eee
-        }
-
-        /* Estilo para mobile */
-        @media(max-width:920px){
-            .sidebar{
-                position:static;
-                width:auto;
-                border-right:none;
-                border-bottom:3px solid var(--vermelho);
-                max-height: 50vh; /* Limita a altura do menu */
-                overflow-y: auto; /* Adiciona scroll interno */
-            }
-            main{
-                margin:0;
-                padding: 10px; /* Reduz o espaçamento para mobile */
-            }
-            section{
-                padding: 10px; /* Reduz o espaçamento para mobile */
-            }
-        }
-    </style>
+<style>:root{--cor-principal:#000000;--cor-secundaria:#333333;--cor-destaque-1:#e74c3c;--cor-destaque-2:#f39c12;--cor-destaque-3:#3498db;--cor-texto:#ffffff;--cor-fundo:#1c1c1c}body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:var(--cor-fundo);color:var(--cor-texto);overflow-x:hidden}header{background-color:var(--cor-principal);padding:1rem 0;text-align:center;position:relative}header img{max-width:250px;height:auto;margin-bottom:.5rem}header p{margin:0;font-style:italic;color:#ddd}.menu-toggle{position:fixed;top:20px;right:20px;z-index:2000;cursor:pointer;background:none;border:none;pointer-events:auto}.menu-toggle .hamburger-icon{display:block;width:30px;height:3px;background-color:var(--cor-destaque-1);margin:4px 0;transition:all 0.3s ease-in-out}.menu-toggle.active .hamburger-icon:nth-child(2){opacity:0}.menu-toggle.active .hamburger-icon:nth-child(1){transform:rotate(-45deg) translate(-6px,6px)}.menu-toggle.active .hamburger-icon:nth-child(3){transform:rotate(45deg) translate(-6px,-6px)}.side-menu{height:100%;width:0;position:fixed;z-index:1000;top:0;right:0;background-color:var(--cor-secundaria);overflow-x:hidden;transition:0.5s;padding-top:60px}.side-menu a{padding:10px 20px;text-decoration:none;font-size:.9rem;color:var(--cor-texto);display:block;transition:0.3s}.side-menu a:hover{color:var(--cor-destaque-1);background-color:var(--cor-principal)}.content{transition:margin-right .5s;padding:2rem}.tab-content{display:none;padding:2.5rem;animation:fadeIn 0.8s ease-in-out;overflow-x:hidden;background:none;border-radius:0;box-shadow:none}.tab-content.active{display:block}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.section h2{text-align:center;color:var(--cor-destaque-3);font-size:2rem;margin-bottom:1.5rem}.titulo-impacto{font-family:'Georgia',serif;color:var(--cor-destaque-1);font-size:2.5rem;text-align:center;text-shadow:2px 2px 4px rgb(0 0 0 / .5)}.titulo-impacto span{display:block}.table-container{overflow-x:auto}table{width:100%;border-collapse:collapse;margin-top:1.5rem}th,td{padding:12px;text-align:left;border-bottom:1px solid var(--cor-principal)}th{background-color:var(--cor-destaque-1);color:var(--cor-texto)}tr:hover{background-color:#444}.inline-text{white-space:nowrap}#home-page iframe{max-width:100%;height:auto;aspect-ratio:9/16;border-radius:8px;box-shadow:0 0 20px rgb(0 0 0 / .7);margin-top:1rem}#home-page .taggbox{margin:2rem 0;height:400px}.social-media{text-align:center;margin-top:2rem;display:flex;flex-wrap:wrap;justify-content:center;gap:15px}#redes-sociais-content h2,#redes-sociais-content h3{padding:1.5rem 1rem;text-align:center}#redes-sociais-content ul{list-style:none;padding:0;text-align:center}#redes-sociais-content li{margin-bottom:1rem}#redes-sociais-content a{font-family:'Georgia',serif;font-size:1.2rem;text-decoration:none;font-weight:700;transition:color 0.3s,text-shadow 0.3s;text-shadow:1px 1px 2px rgb(0 0 0 / .5)}.instagram-link{color:#E1306C}.tiktok-link{color:#FFF}.youtube-link{color:red}.whatsapp-group-link{color:#25D366}#redes-sociais-content a:hover{color:tomato;text-shadow:1px 1px 5px rgb(255 99 71 / .7)}.slider-container{position:relative;max-width:600px;height:400px;margin:2rem auto;overflow:hidden;border-radius:8px}#produtos .slider-container{max-width:300px;height:400px}.slider{display:flex;transition:transform 0.5s ease-in-out;height:100%}.slider-item{min-width:100%;box-sizing:border-box;display:flex;justify-content:center;align-items:center;flex-shrink:0;height:100%}.slider-item img,.slider-item iframe{width:100%;height:100%;object-fit:contain;border-radius:8px}.slider-nav{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);z-index:10}.prev-btn,.next-btn{background-color:rgb(0 0 0 / .5);border:none;color:#fff;padding:10px;cursor:pointer;font-size:1.5rem;border-radius:50%;width:40px;height:40px;display:flex;justify-content:center;align-items:center}.prev-btn:hover,.next-btn:hover{background-color:rgb(0 0 0 / .8)}.blog-post{border-bottom:1px solid #555;padding-bottom:1.5rem;margin-bottom:1.5rem}.blog-post h3{color:var(--cor-destaque-1)}.blog-post a{color:var(--cor-destaque-1);text-decoration:none;transition:color 0.3s}.blog-post a:hover{color:tomato}footer{background-color:var(--cor-principal);color:#888;text-align:center;padding:1.5rem 0;margin-top:2rem}.whatsapp-button{position:fixed;bottom:20px;right:20px;z-index:1000;background-color:#25D366;color:#fff;padding:10px 20px;border-radius:50px;box-shadow:0 4px 8px rgb(0 0 0 / .3);text-decoration:none;transition:transform 0.3s ease-in-out;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1rem}.whatsapp-button:hover{transform:scale(1.05)}#home-page{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 150px);text-align:center}#home-page h2{margin-top:0}.cta-box{background-color:#2c2c2c;padding:2rem;border-radius:8px;text-align:center;margin-top:2rem}.cta-box h3{margin-top:0;color:var(--cor-destaque-1)}.cta-box a.whatsapp-link{display:inline-block;background-color:#25D366;color:#fff;padding:15px 30px;text-decoration:none;border-radius:5px;font-weight:700;margin-top:1rem;transition:background-color 0.3s}.cta-box a.whatsapp-link:hover{background-color:#1aae55}.maps-button,.uber-button{display:inline-block;background-color:#000;color:#fff;padding:15px 30px;text-decoration:none;border-radius:5px;font-weight:700;margin-top:1rem;margin-right:1rem;transition:background-color 0.3s}.maps-button:hover,.uber-button:hover{background-color:#333}#matricula .iframe-container,#estudo .iframe-container{width:100%;height:100vh;max-width:100%;border-radius:8-px;overflow:hidden}#matricula iframe,#estudo iframe{width:100%;height:100%;border:none}@media (max-width:768px){.side-menu a{padding:8px 15px;font-size:.8rem}.content,.tab-content{padding:1rem}}:root{--preto:#111;--cinza:#1b1b1b;--cinza-2:#2a2a2a;--vermelho:#b60000;--texto:#e9e9e9;--texto-dim:#bfbfbf}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--preto);color:var(--texto);font-family:Arial,Helvetica,sans-serif}.sidebar{position:fixed;left:0;top:0;bottom:0;width:280px;background:#000;border-right:3px solid var(--vermelho);padding:16px 12px;overflow-y:auto}.brand{color:#fff;text-align:center;margin:6px 0 14px 0}.brand h1{font-size:18px;margin:0;color:#fff}.brand small{color:var(--texto-dim)}.toc h3{margin:10px 0 8px 8px;color:var(--vermelho);font-size:14px}.toc a{display:block;padding:8px 10px;margin:4px 4px;border-radius:6px;color:#d9d9d9;text-decoration:none;border:1px solid #1f1f1f;background:#0b0b0b}.toc a:hover{background:var(--vermelho);color:#fff;border-color:#000}main{margin-left:300px;padding:2rem;max-width:100%}section{padding:24px;margin:0 0 38px 0}section h2{margin:6px 0 12px 0;color:#fff;border-left:6px solid var(--vermelho);padding-left:10px}section .meta{color:var(--texto-dim);font-size:13px;margin-top:-6px;margin-bottom:8px}.slideshow{position:relative;width:100%;border-radius:10px;overflow:hidden;margin-bottom:14px;background:#000}.slide{position:relative;display:none;align-items:center;justify-content:center;padding-bottom:56.25%;height:0;overflow:hidden}.slide.active{display:flex}.slide img,.slide video,.slide iframe{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;border-radius:8px}.nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgb(0 0 0 / .55);color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:5}.nav-btn:hover{background:rgb(0 0 0 / .8)}.nav-prev{left:10px}.nav-next{right:10px}.dots{position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center;z-index:4}.dot{width:9px;height:9px;border-radius:50%;background:rgb(255 255 255 / .35)}.dot.active{background:#fff}#topBtn{position:fixed;right:20px;bottom:20px;background:var(--vermelho);color:#fff;border:none;border-radius:50%;width:54px;height:54px;font-size:20px;cursor:pointer;box-shadow:0 6px 16px rgb(0 0 0 / .5);display:none}#topBtn:hover{background:#8f0000}.lead{font-size:17px;line-height:1.55}ul{margin:8px 0 8px 20px}li{margin:6px 0}.tag{display:inline-block;background:#0e0e0e;border:1px solid #2a2a2a;padding:4px 8px;border-radius:999px;font-size:12px;color:#bdbdbd;margin:2px 6px 2px 0}.quote{border-left:4px solid var(--vermelho);padding:10px 12px;background:#121212;border-radius:8px;color:#eee}@media(max-width:920px){.sidebar{position:static;width:auto;border-right:none;border-bottom:3px solid var(--vermelho);max-height:50vh;overflow-y:auto}main{margin:0;padding:10px}section{padding:10px}}</style>
 </head>
 <body>
 
@@ -611,8 +28,6 @@
             <span class="hamburger-icon"></span>
         </button>
     </header>
-
-
     <nav id="side-menu" class="side-menu">
         <a href="#" data-tab="home" class="active">Início</a>
         <a href="#" data-tab="linhagem">Linhagem</a>
@@ -629,10 +44,7 @@
         <a href="#" data-tab="apadrinhe-um-campeao">Apadrinhe um campeão</a>
         <a href="#" data-tab="estudo">Estudo</a>
     </nav>
-
    <div class="content">
-
-
         <div id="home" class="tab-content active">
             <div id="home-page">
                 <h2 class="titulo-impacto">CT Souza Jiu Jitsu Nilópolis</h2>
@@ -653,9 +65,7 @@
             <p>Dentro dessa tradição estão os atuais representantes da SZABJJ (Souza Jiu-Jitsu Brasileiro), os mestres Eduardo Souza e Mara Souza, ambos graduados pelas mãos do próprio Mestre Oswaldo Fadda. A equipe nasceu com o compromisso de manter vivos os valores transmitidos por essa linhagem: respeito, técnica e família.</p>
             <p>Hoje, a SZABJJ continua expandindo esse legado, levando o Jiu-Jitsu para novas gerações e honrando a memória de todos que ajudaram a construir essa arte no Brasil.</p>
             <img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1756326218/Linhagem_1_pza0py.jpg" alt="Foto da Linhagem" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
-
-        </div>
-
+  </div>
         <div id="equipe" class="tab-content">
             <h2>Biografia da Equipe</h2>
             <img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755375583/IMG-20241202-WA0014_b35cck.jpg" alt="Foto da Biografia" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
@@ -756,9 +166,7 @@
                     Agendar Aula
                 </a>
             </div>
-
         </div>
-
         <div id="valores" class="tab-content">
             <h2>Como o Jiu-Jitsu pode te ajudar?</h2>
             <ul>
@@ -943,9 +351,7 @@
                     <a href="#linhagem-fadda-szabjj">Diplomas mestre Fadda</a>
                 </div>
             </aside>
-
             <main>
-
                 <section id="espirito-lutador">
     <h2>ESPÍRITO DO LUTADOR 🥋🔥</h2>
     <p>O verdadeiro espírito do lutador vai além da vitória dentro do tatame. Ele é formado por valores, disciplina e a busca constante pelo autoconhecimento. No Jiu-Jitsu e em todas as artes marciais, a evolução não se mede apenas por graduações, mas principalmente pela transformação interior que cada praticante conquista ao longo da jornada.</p>
@@ -978,9 +384,7 @@
         <li>Em academias de musculação, dividindo espaço com outros esportes.</li>
         <li>Em clubes e até mesmo nas ruas da cidade, sempre com o objetivo de mostrar o valor do Jiu-Jitsu.</li>
     </ul>
-    
     <p>Essa caminhada não é apenas uma lembrança, mas sim um alicerce sólido que sustenta o presente.</p>
-    
     <p>📸 Alguns registros de fotos e vídeos da família antes da SZABJJ:
 
     <div class="slideshow">
@@ -1016,13 +420,11 @@
     <strong>linhagem direta com o lendário Grão-Mestre faixa vermelha 10º grau Oswaldo Fadda</strong>,
     figura essencial para a expansão do Jiu-Jitsu no Brasil. 
   </p>
-
   <p>
     Os Mestres <strong>Eduardo Souza</strong> e <strong>Mara Souza</strong> receberam seus
     <strong>diplomas de faixa-preta assinados pelo próprio Fadda</strong>, um marco histórico que reforça a legitimidade,
     a tradição e o reconhecimento internacional de nossa equipe.
   </p>
-
   <div class="slideshow">
     <div class="slide active">
       <img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1756579592/20250829_215856_vcnvbk_tmxwmb.jpg" alt="Diploma assinado por Oswaldo Fadda - Eduardo Souza">
@@ -1037,7 +439,6 @@
       <img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1756564903/Mara_Fada_cydq1z.jpg" alt="Diploma original assinado por Oswaldo Fadda">
     </div>
   </div>
-
   <p>
     Esses documentos não representam apenas uma graduação, mas sim a
     <strong>validação de uma linhagem única</strong>, que conecta a SZABJJ diretamente às raízes do Jiu-Jitsu brasileiro,
@@ -1741,11 +1142,8 @@ Conto com você para ser parte dessa vitória!Qualquer valor é bem-vindo e far�
             <div class="iframe-container">
                 <iframe src="https://d09u05d92u-oss.github.io/quiz-szabjj/" title="Quiz sobre Jiu-Jitsu"></iframe>
             </div>
-
         </div>
-
     </div>
-
     <footer>
         <p>Endereço: Antônio Félix, 427, Nilópolis | WhatsApp: 5521982481691</p>
         <p>
@@ -1756,8 +1154,7 @@ Conto com você para ser parte dessa vitória!Qualquer valor é bem-vindo e far�
 
     <a href="https://api.whatsapp.com/send?phone=5521982481691&text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20aulas%20de%20jiu-jitsu%20da%20equipe%20SZABJJ.%20Poderiam%20me%20ajudar?" target="_blank" class="whatsapp-button">
         WhatsApp
-    </a>
-    
+    </a>  
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.querySelector('.menu-toggle');
@@ -1949,11 +1346,9 @@ section.scrollIntoView({ behavior: "smooth" });
 }
 }
 
-
 // Carrega a seção ao acessar pela URL
 let path = window.location.pathname.replace("/szabjj/", "").replace("/", "").toLowerCase();
 if (path) goToSection(path);
-
 
 // Intercepta cliques no menu
 document.querySelectorAll("#side-menu a[href^='/szabjj/']").forEach(link => {
@@ -1964,7 +1359,6 @@ history.pushState({}, "", this.getAttribute("href"));
 goToSection(target);
 });
 });
-
 
 // Suporte ao botão voltar/avançar do navegador
 window.addEventListener("popstate", function () {
@@ -1986,19 +1380,8 @@ target.scrollIntoView({ behavior: "smooth" });
 });
 });
 </script>
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
