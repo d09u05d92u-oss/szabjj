@@ -118,7 +118,7 @@ main {
     margin: 0 auto;
     max-width: 1200px;
     padding: 0 1.5rem;
-    padding-top: 80px;
+    padding-top: px;
     /* Espaço para o header fixo */
     padding-bottom: 80px;
     /* Espaço para o footer fixo */
