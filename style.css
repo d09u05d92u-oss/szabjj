@@ -925,3 +925,14 @@ li {
     height: 500px;
     border: none; /* remove a borda */
 }
+/* Garante que o contêiner principal se adapte à largura da tela */
+main {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Garante que o widget de avaliações não ultrapasse a largura do contêiner */
+.elfsight-app-89451b77-890b-44b3-8527-10ae3518561a {
+    max-width: 100%;
+    /* Impede que o widget transborde */
+}
