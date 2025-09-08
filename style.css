@@ -968,4 +968,44 @@ body, main {
     margin-bottom: 0.5rem; /* Espaço entre os links */
     white-space: nowrap; /* Evita que o texto quebre em várias linhas */
 }
+/* Estilos para o menu lateral */
+.side-menu {
+    /* Garante que o menu não tenha scroll interno desnecessário */
+    overflow-y: auto; /* Permite scroll se o conteúdo for maior que a tela */
+    max-height: calc(100vh - 120px); /* Altura máxima: altura total da tela menos o espaço do header e footer */
+    height: auto; /* Permite que a altura se ajuste ao conteúdo se não precisar de scroll */
+    padding-top: 1rem; /* Reduz o espaço no topo do menu */
+    padding-bottom: 1rem; /* Reduz o espaço no final do menu */
+    box-sizing: border-box; /* Inclui padding e border na altura total */
+}
+
+.side-menu a {
+    padding: 0.75rem 1.5rem; /* Reduz o espaçamento vertical entre os links */
+    margin-bottom: 0.5rem; /* Adiciona um pequeno espaço entre os links */
+    font-size: 1rem; /* Ajusta o tamanho da fonte, se necessário */
+}
+
+/* Remove padding-top do h1 em páginas específicas se necessário */
+/* Exemplo: para a página de avaliações, se h1 estiver causando espaço */
+.reviews-page h1 {
+    margin-top: 0;
+}
+
+/* Para garantir que o fundo não ultrapasse o header, podemos precisar ajustar o padding-top do main em certas páginas */
+/* Se o fundo é aplicado ao body, podemos precisar ajustar a margem/padding do body */
+/* Uma abordagem comum é ter um padding-top no main que corresponde à altura do header fixo */
+
+/* Se o fundo for do body e ele ultrapassa: */
+body {
+    /* Verifique se não há um padding-top ou margin-top aqui que seja muito grande */
+    /* Se o header for fixo, o main pode precisar de padding-top */
+}
+
+/* Se o fundo for do main, e ele ultrapassa o header */
+main {
+    /* Verifique se o padding-top do main não é excessivo */
+    /* Se o header é fixo, pode ser necessário um padding-top no main */
+    /* Exemplo: padding-top: 60px; (se o header tiver 60px de altura) */
+}
+
 
