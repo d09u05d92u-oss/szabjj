@@ -120,10 +120,10 @@ main {
     max-width: 1200px;
     padding: 0 1.5rem;
     padding-top: 0px;
-    /* Espaço para o header fixo */
     padding-bottom: 80px;
-    /* Espaço para o footer fixo */
     box-sizing: border-box;
+    z-index: 10; /* Um z-index menor que o do menu lateral */
+    position: relative; /* Necessário para que o z-index funcione */
 }
 
 /* Estilos específicos para o conteúdo das páginas */
