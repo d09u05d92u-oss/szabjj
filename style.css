@@ -895,3 +895,33 @@ li {
   width: 100%;
   height: 100%;
 }
+/* Ajuste o espaço para o iframe da Vaquinha se ele estiver se comportando de forma diferente */
+/* Idealmente, adicione uma classe única ao div do iframe da vakinha, por exemplo: <div class="iframe-container vakinha-iframe"> */
+.iframe-container:nth-of-type(1) { /* Isso seleciona o primeiro .iframe-container (assumindo que a vaquinha é o primeiro) */
+    margin-bottom: -20px; /* Experimente com valores negativos para "puxar" para cima */
+}
+
+/* Se a vaquinha for o SEGUNDO iframe-container (depois do mapa), use: */
+/*
+.iframe-container:nth-of-type(2) {
+    margin-bottom: -20px;
+}
+*/
+
+/* E para os slides, você pode diminuir um pouco a margem superior, se necessário */
+.slideshow {
+    margin-top: 10px; /* Diminua este valor conforme necessário */
+}
+/* Estilo específico para a "vaquinha" */
+.vakinha-container {
+    margin-bottom: 2rem; /* Espaçamento entre a vaquinha e a galeria */
+}
+
+.vakinha-container iframe {
+    width: 100%;
+    /* Use 'height' com um valor fixo em pixels para que ela apareça completa. */
+    /* 500px é o valor que já estava no seu HTML, garantindo que ela caiba */
+    /* na maioria das telas sem barra de rolagem interna. */
+    height: 500px;
+    border: none; /* remove a borda */
+}
