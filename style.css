@@ -43,17 +43,18 @@ header p {
 
 /* Botão hambúrguer sempre visível */
 .menu-toggle {
-    /* ... outras propriedades ... */
     position: fixed;
-    /* Garante que esteja sempre visível */
     top: 20px;
     right: 20px;
-    z-index: 2000;
+    z-index: 3000;
+    /* Alto z-index para garantir que fique por cima */
     cursor: pointer;
     background: none;
     border: none;
     pointer-events: auto;
+    /* Garante que o botão seja clicável */
     padding: 5px;
+    /* As linhas abaixo são importantes para garantir que o X apareça corretamente */
 }
 
 .menu-toggle .hamburger-icon {
@@ -63,9 +64,10 @@ header p {
     background-color: var(--cor-destaque-1);
     margin: 4px 0;
     transition: all 0.3s ease-in-out;
+    /* O z-index aqui não é estritamente necessário se o .menu-toggle já está alto */
 }
 
-/* Transforma o ícone do menu em um X quando o botão tem a classe 'active' */
+/* Transforma o ícone do menu em um X */
 .menu-toggle.active .hamburger-icon:nth-child(2) {
     opacity: 0;
 }
@@ -82,9 +84,9 @@ header p {
 .side-menu {
     height: 100%;
     width: 0;
-    /* Começa fechado */
     position: fixed;
     z-index: 1000;
+    /* Um z-index alto, mas menor que o do .menu-toggle */
     top: 0;
     right: 0;
     background-color: var(--cor-secundaria);
@@ -96,7 +98,6 @@ header p {
 
 .side-menu.active {
     width: 250px;
-    /* Abre o menu */
 }
 
 .side-menu a {
@@ -227,6 +228,7 @@ tr:hover {
     height: 400px;
 }
 
+/* Estilos da seção redes sociais */
 .social-media {
     text-align: center;
     margin-top: 2rem;
@@ -236,12 +238,14 @@ tr:hover {
     gap: 15px;
 }
 
+/* Novo estilo para os links de redes sociais e grupos */
 #redes-sociais-content h2,
 #redes-sociais-content h3 {
     padding: 1.5rem 1rem;
     text-align: center;
 }
 
+/* Ajuste para não ter lista */
 #redes-sociais-content ul {
     list-style: none;
     padding: 0;
@@ -252,40 +256,41 @@ tr:hover {
     margin-bottom: 1rem;
 }
 
-/* ESTILIZAÇÃO DOS LINKS COM SOMBRA */
+/* Estilo base para links da seção de redes sociais */
 #redes-sociais-content a {
     font-family: 'Georgia', serif;
-    /* Fonte estilizada */
     font-size: 1.2rem;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s, text-shadow 0.3s;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    /* Sombra mais pronunciada */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Cores específicas para cada link */
 .instagram-link {
     color: #E1306C;
+    /* Rosa do Instagram */
 }
 
 .tiktok-link {
     color: #FFFFFF;
-    /* Pode precisar de uma sombra diferente para contraste se o fundo for escuro */
+    /* Branco */
 }
 
 .youtube-link {
     color: #FF0000;
+    /* Vermelho vivo do YouTube */
 }
 
 .whatsapp-group-link {
     color: #25D366;
+    /* Verde do WhatsApp */
 }
 
 #redes-sociais-content a:hover {
     color: #ff6347;
-    /* Cor ao passar o mouse */
-    text-shadow: 2px 2px 8px rgba(255, 99, 71, 1);
-    /* Sombra mais intensa no hover */
+    /* Cor de hover para os links */
+    text-shadow: 1px 1px 5px rgba(255, 99, 71, 0.7);
 }
 
 .slider-container {
@@ -612,6 +617,18 @@ section h2 {
     border-left: 6px solid var(--vermelho);
     padding-left: 10px;
 }
+
+/* Remove o border-left apenas para h2 dentro de sections na página inicial */
+.home-page section h2 {
+    border-left: none;
+    /* Remove o border-left */
+}
+
+/* Regra para remover o border-left da página inicial */
+#home-page .section h2 {
+    border-left: none;
+}
+
 
 section .meta {
     color: var(--texto-dim);
