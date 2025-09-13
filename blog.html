@@ -1,93 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tatame em Palavras – SZABJJ Nilópolis</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <title>Tatame em Palavras – SZABJJ Nilópolis</title>
+<!-- Favicons -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="favicon-64x64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="favicon-180x180.png">
+<link rel="icon" href="favicon-192x192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="favicon-512x512.png" type="image/png" sizes="512x512">
+
+    <meta name="description" content="Blog oficial da equipe, ultimas noticias você encontra aqui">
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 </head>
-<body>
 
-  <header>
-    <img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755376968/lv_0_20250816174224_rlcqb5.gif" alt="Logo SZABJJ">
-    <p>A Arte Suave com Disciplina e Respeito</p>
-  <button class="menu-toggle">
-    <span class="hamburger-icon"></span>
-    <span class="hamburger-icon"></span>
-    <span class="hamburger-icon"></span>
-  </button>
-  </header>
+<body class="home-page">
 
-  <nav id="side-menu" class="side-menu">
-    <a href="index.html">Início</a>
-    <a href="linhagem.html">Linhagem</a>
-    <a href="equipe.html">Equipe</a>
-    <a href="turmas.html">Turmas e Horários</a>
-    <a href="valores.html">Valores</a>
-    <a href="como-chegar.html">Como Chegar</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="avaliacoes.html">Avaliações</a>
-    <a href="blog.html" class="active">Tatame em Palavras</a>
-    <a href="redes.html">Redes Sociais</a>
-    <a href="produtos.html">Produtos</a>
-    <a href="matricula.html">Matrícula</a>
-    <a href="apadrinhe.html">Apadrinhe um campeão</a>
-    <a href="estudo.html">Estudo</a>
-  </nav>
+    <header>
+        <img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1755376968/lv_0_20250816174224_rlcqb5.gif" alt="Logo SZABJJ" width="250" height="250">
+        <p>A Arte Suave com Disciplina e Respeito</p>
+        <div class="header-buttons">
+            <button class="menu-toggle" aria-label="Abrir e fechar menu de navegação">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </button>
+            <a href="login.html" class="login-button">Login</a>
+        </div>
+    </header>
 
-  <main>
-    <section>
- <aside class="sidebar">
-                <div class="brand">
-                    <h1>Tatame em Palavras – SZABJJ</h1>
-                    <small>Blog oficial da equipe</small>
-                </div>
-                <div class="toc">
-                    <h3>História & Fundação</h3>
-                    <a href="#fundacao">Fundação do CT SZABJJ</a>
-                    <a href="#sobrevivencia-2020">Sobrevivência e Crescimento 2020</a>
+    <nav id="side-menu" class="side-menu">
+        <a href="index.html">Início</a>
+        <a href="linhagem.html">Linhagem</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="turmas.html">Turmas e Horários</a>
+        <a href="valores.html">Valores</a>
+        <a href="como-chegar.html">Como Chegar</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="avaliacoes.html">Avaliações</a>
+        <a href="blog.html" class="active">Tatame em Palavras</a>
+        <a href="redes.html">Redes Sociais</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="matricula.html">Matrícula</a>
+        <a href="apadrinhe.html">Apadrinhe um campeão</a>
+        <a href="estudo.html">Estudo</a>
+        <a href="bolsista.html">Bolsistas</a>
+    </nav>
 
-                    <h3>Competição & Graduação</h3>
-                    <a href="#campeonatos">Participação em Campeonatos</a>
-                    <a href="#primeira-graduacao">Primeira Graduação no CT</a>
-                    <a href="#graduacao-merito">Graduação por Mérito</a>
-                    <a href="#faixa-branca">A Faixa Branca</a>
+<div class="blog-container">
+  <aside class="sidebar">
+    <div class="brand">
+        <h1>Tatame em Palavras – SZABJJ</h1>
+        <small>Blog oficial da equipe</small>
+    </div>
+    <div class="toc">
+        <h3>História & Fundação</h3>
+        <a href="#fundacao">Fundação do CT SZABJJ</a>
+        <a href="#sobrevivencia-2020">Sobrevivência e Crescimento 2020</a>
 
-                    <h3>Inclusão & Formação</h3>
-                    <a href="#beneficios-criancas">Benefícios do Jiu-Jitsu para Crianças</a>
-                    <a href="#treino-infantil">Treino Infantil com Mascote</a>
-                    <a href="#historia-matheus">História de Matheus</a>
-                    <a href="#aluno-deficiencia">Aluno com Deficiência</a>
+        <h3>Competição & Graduação</h3>
+        <a href="#campeonatos">Participação em Campeonatos</a>
+        <a href="#primeira-graduacao">Primeira Graduação no CT</a>
+        <a href="#graduacao-merito">Graduação por Mérito</a>
+        <a href="#faixa-branca">A Faixa Branca</a>
 
-                    <h3>Técnica & Mentalidade</h3>
-                    <a href="#quedas">Importância do Aprendizado de Quedas</a>
-                    <a href="#amarrar-faixa">Aprender a Amarrar a Faixa</a>
-                    <a href="#inspirar-exemplo">Inspirar Pelo Exemplo</a>
-                    <a href="#aprender-erros">Aprender com Erros</a>
-                    <a href="#pacifico-verdade">Ser Pacífico de Verdade</a>
+        <h3>Inclusão & Formação</h3>
+        <a href="#beneficios-criancas">Benefícios do Jiu-Jitsu para Crianças</a>
+        <a href="#treino-infantil">Treino Infantil com Mascote</a>
+        <a href="#historia-matheus">História de Matheus</a>
+        <a href="#aluno-deficiencia">Aluno com Deficiência</a>
 
-                    <h3>Perfis & Entrevistas</h3>
-                    <a href="#mestra-mara">Mestra Mara Souza</a>
-                    <a href="#entrevista-mara">Entrevista – Mestra Mara Souza</a>
-                    <a href="#mestre-eduardo-missao">Entrevista – Mestre Eduardo (Nilópolis)</a>
-                    <a href="#mestre-eduardo-origem">Entrevista – Mestre Eduardo (Origem)</a>
-                    <a href="#perfil-dudu">Perfil – Dudu Souza</a>
+        <h3>Técnica & Mentalidade</h3>
+        <a href="#quedas">Importância do Aprendizado de Quedas</a>
+        <a href="#amarrar-faixa">Aprender a Amarrar a Faixa</a>
+        <a href="#inspirar-exemplo">Inspirar Pelo Exemplo</a>
+        <a href="#aprender-erros">Aprender com Erros</a>
+        <a href="#pacifico-verdade">Ser Pacífico de Verdade</a>
 
-                    <h3>Outros</h3>
-                    <a href="#espirito-lutador">ESPÍRITO DO LUTADOR</a>
-                    <a href="#familia-souza-caminhada">MEIO SÉCULO DE CAMINHADA</a>
-                    <a href="#familia-souza-vale-tudo">SOUZA NO VALE-TUDO</a>
-                    <a href="#fato-historico">Fato Histórico no Jiu-Jitsu Nilopolitano</a>
-                    <a href="#familia-souza-livros">Souza além dos Tatames</a>
-                    <a href="#faixas-pretas-mestre-mara">De alunos a faixas-pretas</a>
-                    <a href="#certificados-mestre-mara">Formação Acadêmica e Inclusão no Jiu-Jitsu</a>
-                    <a href="#mestres-szabjj-certificados">Reconhecimento Internacional</a>
-                    <a href="#linhagem-fadda-szabjj">Diplomas mestre Fadda</a>
-                </div>
-            </aside>
+        <h3>Perfis & Entrevistas</h3>
+        <a href="#mestra-mara">Mestra Mara Souza</a>
+        <a href="#entrevista-mara">Entrevista – Mestra Mara Souza</a>
+        <a href="#mestre-eduardo-missao">Entrevista – Mestre Eduardo (Nilópolis)</a>
+        <a href="#mestre-eduardo-origem">Entrevista – Mestre Eduardo (Origem)</a>
+        <a href="#perfil-dudu">Perfil – Dudu Souza</a>
+
+        <h3>Outros</h3>
+        <a href="#espirito-lutador">ESPÍRITO DO LUTADOR</a>
+        <a href="#familia-souza-caminhada">MEIO SÉCULO DE CAMINHADA</a>
+        <a href="#familia-souza-vale-tudo">SOUZA NO VALE-TUDO</a>
+        <a href="#fato-historico">Fato Histórico no Jiu-Jitsu Nilopolitano</a>
+        <a href="#familia-souza-livros">Souza além dos Tatames</a>
+        <a href="#faixas-pretas-mestre-mara">De alunos a faixas-pretas</a>
+        <a href="#certificados-mestre-mara">Formação Acadêmica e Inclusão no Jiu-Jitsu</a>
+        <a href="#mestres-szabjj-certificados">Reconhecimento Internacional</a>
+        <a href="#linhagem-fadda-szabjj">Diplomas mestre Fadda</a>
+    </div>
+  </aside>
             <main>
 <h1 class="titulo-impacto">Blog oficial da equipe</h1>
-                <section id="espirito-lutador">
+ <main class="blog-content"><section id="espirito-lutador">
     <h2>ESPÍRITO DO LUTADOR 🥋🔥</h2>
     <p>O verdadeiro espírito do lutador vai além da vitória dentro do tatame. Ele é formado por valores, disciplina e a busca constante pelo autoconhecimento. No Jiu-Jitsu e em todas as artes marciais, a evolução não se mede apenas por graduações, mas principalmente pela transformação interior que cada praticante conquista ao longo da jornada.</p>
     <div class="slide active"><img src="https://res.cloudinary.com/ddozlstmp/image/upload/v1756434924/IMG_0222-Editar_lam0t5.jpg" alt=""></div>
@@ -763,18 +784,18 @@
                     </p>
                 </section>
             </main>
-            <button id="topBtn" title="Voltar ao topo">↑</button>
+              <button id="topBtn" title="Voltar ao topo">↑</button>
     </section>
   </main>
-
-  <footer>
-    <p>Endereço: Antônio Félix, 427, Nilópolis | WhatsApp: 5521982481691</p>
-    <p>© 2025 SZABJJ. Todos os direitos reservados. | <a href="sitemap.xml">🗺️ Sitemap</a></p>
-  </footer>
-    <a href="https://api.whatsapp.com/send?phone=5521982481691&text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20aulas%20de%20jiu-jitsu%20da%20equipe%20SZABJJ.%20Poderiam%20me%20ajudar?" target="_blank" class="whatsapp-button">
+    <footer>
+        <p>Endereço: Antônio Félix, 427, Nilópolis | WhatsApp: 5521982481691</p>
+        <p>© 2025 SZABJJ. Todos os direitos reservados. | <a href="sitemap.xml">🗺️ Sitemap</a></p>
+    </footer>
+    <a href="https://api.whatsapp.com/send?phone=5521982481691&text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20aulas%20de%20jiu-jitsu%20da%20equipe%20SZABJJ.%20Poderiam%20me%20ajudar?"
+        target="_blank" class="whatsapp-button" aria-label="Fale conosco via WhatsApp">
         WhatsApp
-    </a>  
+    </a>
 
-  <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -107,6 +107,7 @@ header p {
     color: var(--cor-texto);
     display: block;
     transition: 0.3s;
+    margin-bottom: 0;
 }
 
 .side-menu a:hover {
@@ -114,7 +115,6 @@ header p {
     background-color: var(--cor-principal);
 }
 
-/* Ajustes para main */
 main {
     margin: 0 auto;
     max-width: 1200px;
@@ -122,8 +122,10 @@ main {
     padding-top: 0px;
     padding-bottom: 80px;
     box-sizing: border-box;
-    z-index: 10; /* Um z-index menor que o do menu lateral */
-    position: relative; /* Necessário para que o z-index funcione */
+    z-index: 10;
+    /* Um z-index menor que o do menu lateral */
+    position: relative;
+    /* Necessário para que o z-index funcione */
 }
 
 /* Estilos específicos para o conteúdo das páginas */
@@ -859,46 +861,59 @@ li {
     margin-top: 10px;
     padding: 8px;
     border-radius: 5px;
-    width: 100%; /* Faz o seletor ocupar 100% da largura do contêiner pai */
-    max-width: 350px; /* Define uma largura máxima para não ficar muito largo em telas grandes */
-    box-sizing: border-box; /* Inclui padding e border na largura total */
-    font-size: 1rem; /* Ajusta o tamanho da fonte */
-    background-color: var(--cor-secundaria); /* Mantém um fundo escuro */
-    color: var(--cor-texto); /* Cor do texto */
-    border: 1px solid var(--cor-principal); /* Borda sutil */
+    width: 100%;
+    /* Faz o seletor ocupar 100% da largura do contêiner pai */
+    max-width: 350px;
+    /* Define uma largura máxima para não ficar muito largo em telas grandes */
+    box-sizing: border-box;
+    /* Inclui padding e border na largura total */
+    font-size: 1rem;
+    /* Ajusta o tamanho da fonte */
+    background-color: var(--cor-secundaria);
+    /* Mantém um fundo escuro */
+    color: var(--cor-texto);
+    /* Cor do texto */
+    border: 1px solid var(--cor-principal);
+    /* Borda sutil */
 }
 
 /* Para que o seletor seja responsivo em telas menores */
 @media (max-width: 767px) {
     .product-selector {
-        width: 100%; /* Garante que ocupe toda a largura em telas pequenas */
-        max-width: none; /* Remove a largura máxima em telas pequenas */
+        width: 100%;
+        /* Garante que ocupe toda a largura em telas pequenas */
+        max-width: none;
+        /* Remove a largura máxima em telas pequenas */
     }
 }
 
 /* Container para tornar iframes responsivos (vídeos, mapas, etc.) */
 .iframe-container {
-  position: relative;
-  width: 100%;
-  /* Proporção 16:9 */
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  margin-bottom: 1.5rem; /* Adiciona um espaço abaixo do container */
+    position: relative;
+    width: 100%;
+    /* Proporção 16:9 */
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    /* Adiciona um espaço abaixo do container */
 }
 
 /* Estiliza o iframe dentro do container */
 .iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
+
 /* Ajuste o espaço para o iframe da Vaquinha se ele estiver se comportando de forma diferente */
 /* Idealmente, adicione uma classe única ao div do iframe da vakinha, por exemplo: <div class="iframe-container vakinha-iframe"> */
-.iframe-container:nth-of-type(1) { /* Isso seleciona o primeiro .iframe-container (assumindo que a vaquinha é o primeiro) */
-    margin-bottom: -20px; /* Experimente com valores negativos para "puxar" para cima */
+.iframe-container:nth-of-type(1) {
+    /* Isso seleciona o primeiro .iframe-container (assumindo que a vaquinha é o primeiro) */
+    margin-bottom: -20px;
+    /* Experimente com valores negativos para "puxar" para cima */
 }
 
 /* Se a vaquinha for o SEGUNDO iframe-container (depois do mapa), use: */
@@ -910,11 +925,14 @@ li {
 
 /* E para os slides, você pode diminuir um pouco a margem superior, se necessário */
 .slideshow {
-    margin-top: 10px; /* Diminua este valor conforme necessário */
+    margin-top: 10px;
+    /* Diminua este valor conforme necessário */
 }
+
 /* Estilo específico para a "vaquinha" */
 .vakinha-container {
-    margin-bottom: 2rem; /* Espaçamento entre a vaquinha e a galeria */
+    margin-bottom: 2rem;
+    /* Espaçamento entre a vaquinha e a galeria */
 }
 
 .vakinha-container iframe {
@@ -923,8 +941,10 @@ li {
     /* 500px é o valor que já estava no seu HTML, garantindo que ela caiba */
     /* na maioria das telas sem barra de rolagem interna. */
     height: 500px;
-    border: none; /* remove a borda */
+    border: none;
+    /* remove a borda */
 }
+
 /* Garante que o contêiner principal se adapte à largura da tela */
 main {
     max-width: 100%;
@@ -936,3 +956,83 @@ main {
     max-width: 100%;
     /* Impede que o widget transborde */
 }
+
+/* Correções de Acessibilidade (Contraste) */
+.brand small {
+    color: #cccccc;
+}
+
+.toc a:hover {
+    background: var(--vermelho);
+    color: #fff;
+}
+
+/* Otimizações de Desempenho do Google PageSpeed Insights */
+
+/* Otimiza a renderização de elementos principais */
+main {
+    will-change: transform, opacity;
+}
+
+/* Garante que o container do slider tenha uma altura definida para evitar CLS */
+.slider-container,
+#produtos .slider-container {
+    height: 400px;
+}
+
+/* Ajuda a prevenir o CLS em imagens e iframes */
+.slider-item img,
+.slider-item iframe {
+    aspect-ratio: attr(width) / attr(height);
+}
+
+/* Otimiza o carregamento de iframes para melhorar o LCP */
+.iframe-container-centralizado iframe {
+    content-visibility: auto;
+}
+
+/* Melhora a exibição de fontes personalizadas para evitar CLS */
+section {
+    font-display: swap;
+}
+
+/* Para o sidebar, em telas menores */
+@media (max-width: 920px) {
+    .sidebar {
+        will-change: transform;
+    }
+}
+/* Botão de Login */
+.login-button {
+    position: fixed;
+    top: 25px;
+    right: 70px; /* Ajusta a posição para ficar ao lado do botão de menu */
+    z-index: 3000;
+    font-weight: bold;
+    color: var(--cor-destaque-1); /* Cor vermelha da logo */
+    text-decoration: none; /* Remove o sublinhado do hyperlink */
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.login-button:hover {
+    text-shadow: 0 0 10px var(--cor-destaque-1); /* Sombra ao passar o mouse */
+}
+/* Nova regra para o contêiner do blog */
+.blog-content {
+    margin-left: auto; /* Empurra o conteúdo do blog para a direita */
+    margin-right: 0;   /* Garante que não haja margem à direita */
+    max-width: 1300px; /* Defina uma largura para o conteúdo do blog, se quiser que ele não ocupe toda a largura */
+    padding-left: 1.5rem; /* Adiciona um pouco de padding à esquerda para não grudar na borda */
+    /* Se você quiser que o blog ocupe a mesma largura que o main, remova o max-width e ajuste o padding */
+    box-sizing: border-box;
+}
+
+/* Certifique-se que o main permite o conteúdo fluir para a direita, se necessário */
+main {
+    margin: 0; /* Remove a centralização do main, se estiver usando .blog-content */
+    padding: 0 1.5rem;
+    /* ... outras propriedades do main */
+}
+
+/* Se você quiser manter o main centralizado, mas o conteúdo do blog alinhado à direita dentro dele */
+/* Isso é um pouco mais complexo e pode precisar de flexbox no main */
