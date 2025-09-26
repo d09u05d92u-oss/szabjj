@@ -426,10 +426,15 @@ footer {
 }
 
 #topBtn {
+    /* Torna o botão fixo na tela para que acompanhe a rolagem */
     position: fixed;
+    /* Define a posição */
     right: 20px;
     bottom: 80px;
-    z-index: 1001;
+    /* Garante que o botão fique acima de todos os elementos */
+    z-index: 1001; 
+    
+    /* Estilização (mantive suas configurações) */
     background: var(--cor-destaque-1);
     color: #fff;
     border: none;
@@ -439,6 +444,8 @@ footer {
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    
+    /* **Essencial:** Esconde o botão por padrão */
     display: none;
 }
 
